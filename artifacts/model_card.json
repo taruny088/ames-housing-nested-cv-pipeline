@@ -1,0 +1,54 @@
+{
+  "model_name": "Ames Housing - Nested CV Production Artifact",
+  "created_at_utc": "2026-01-04T10:58:03.120798+00:00",
+  "task": "Regression with log1p target transform",
+  "primary_metric": "RMSLE",
+  "nested_cv": {
+    "outer_mean_rmsle": 0.3538213506808222,
+    "outer_std_rmsle": 0.022251272256705635,
+    "outer_scores": [
+      0.31597184161358227,
+      0.36044556449167625,
+      0.3665615959172065,
+      0.37230640070082355
+    ]
+  },
+  "final_training": {
+    "final_tuning_cv_rmsle": 0.3396611374921218,
+    "final_params": {
+      "model_type": "LGBM",
+      "pca_var": 0.9796090660269953,
+      "loo_smooth": 4.886387910813595,
+      "rare_min_freq": 0.012457242817826378,
+      "n_estimators": 1200,
+      "learning_rate": 0.07110731447912398,
+      "lgb_num_leaves": 24,
+      "lgb_min_child_samples": 58,
+      "lgb_subsample": 0.616596760473645,
+      "lgb_colsample": 0.833177005551333,
+      "lgb_reg_lambda": 0.05741675273635176
+    },
+    "final_best_iter": 18,
+    "note": "Final model refit on full data with ES-derived best iteration."
+  },
+  "leakage_controls": [
+    "Outer test fold never used in tuning.",
+    "All preprocessing + LOO encoding fitted only on training partitions inside CV.",
+    "Early stopping uses validation split from training only (never outer test)."
+  ],
+  "data_summary": {
+    "source": "OpenML: house_prices (Ames Housing)",
+    "n_rows": 1460,
+    "n_features": 80,
+    "n_numeric": 37,
+    "n_categorical": 43
+  },
+  "environment": {
+    "python": "3.12.0",
+    "numpy": "2.4.0",
+    "pandas": "2.3.3",
+    "optuna": "4.6.0",
+    "xgboost": "3.1.2",
+    "lightgbm": "4.6.0"
+  }
+}
